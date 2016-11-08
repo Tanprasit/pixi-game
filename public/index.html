@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.0.0/pixi.min.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	// Create a renderer for the game.
+	var renderer = new PIXI.CanvasRenderer(window.innerWidth, window.innerHeight);
+
+	// Attach it to the body.
+	document.body.appendChild(renderer.view);
+
+	// Create a container to draw on.
+	var stage = new PIXI.Container();
+
+	var zombieTexture = PIXI.Texture.fromImage('zombie.png');
+
+	var zombie = new PIXI.Sprite(zombieTexture);
+
+	zombie.position.x = window.innerWidth / 2 - 150;
+
+	zombie.position.y = window.innerHeight / 2 - 150;
+
+	stage.addChild(zombie);
+
+	function draw() {
+	  renderer.render(stage);
+	  requestAnimationFrame(draw);
+	}
+
+	draw();
+</script>
+</html>
